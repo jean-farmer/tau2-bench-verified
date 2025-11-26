@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Tau2-Bench Leaderboard Submission",
-  "description": "Schema for submitting model results to the tau2-bench leaderboard",
+  "description": "Schema for submitting model results to the tau2-bench-verified leaderboard",
   "type": "object",
   "required": ["model_name", "organization", "submission_date", "contact_info", "results"],
   "properties": {
@@ -71,7 +71,7 @@
         },
         "tau2_bench_version": {
           "type": "string",
-          "description": "Version of tau2-bench used for evaluation"
+          "description": "Version of tau2-bench-verified used for evaluation"
         },
         "user_simulator": {
           "type": ["string", "null"],

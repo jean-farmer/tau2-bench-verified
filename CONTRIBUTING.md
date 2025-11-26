@@ -1,4 +1,4 @@
-# Contributing to τ²-Bench
+# Contributing to τ²-Bench-Verified
 
 Thank you for your interest in contributing to τ²-bench! This document provides guidelines to help you make clean, reviewable contributions that can be easily integrated into the project.
 
@@ -102,8 +102,8 @@ new-stuff
 ### 1. Environment Setup
 ```bash
 # Clone your fork
-git clone https://github.com/your-username/tau2-bench.git
-cd tau2-bench
+git clone https://github.com/your-username/tau2-bench-verified.git
+cd tau2-bench-verified
 
 # Create and activate virtual environment
 python -m venv .venv
@@ -278,4 +278,4 @@ Contributors who make significant contributions may be:
 - Added to the project's contributor list
 - Mentioned in release notes
 
-Thank you for contributing to τ²-bench! Your efforts help advance the field of conversational AI evaluation.
+Thank you for contributing to τ²-bench-Verified! Your efforts help advance the field of conversational AI evaluation.

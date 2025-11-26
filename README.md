@@ -5,7 +5,6 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![arXiv](http://img.shields.io/badge/cs.AI-arXiv-B31B1B.svg?logo=arxiv&logoColor=red)](#) TBD
 [![blog](https://img.shields.io/badge/blog-tau2--bench--verified-green)](#) TBD
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/sierra.svg?style=social&label=Follow%20%40SierraPlatform)](#) TBD
 
 ## 🔍 About τ²-Bench-Verified
 
@@ -29,7 +28,7 @@ All fixes have been carefully documented with references to the specific policy 
 
 <div align="center">
 <img src="figs/overview.png" width="95%" alt="System Overview"><br>
-<em>Figure 1: τ²-bench allows users to interact with the agent and the environment</em>
+<em>Figure 1: τ²-bench-Verified allows users to interact with the agent and the environment</em>
 </div>
 
 <div align="center">
@@ -37,23 +36,9 @@ All fixes have been carefully documented with references to the specific policy 
 <em>Figure 2: Trajectory of a conversation between an agent and a user</em>
 </div>
 
-## 🆕 What's New
-
-### 🤖 Reinforcement Learning Support (New!)
-τ²-bench now supports RL training with a Gymnasium-compatible interface:
-
-- **🏋️ Train RL Agents**: Use the gym interface to train agents with popular RL frameworks. 
-- **🎮 Play as Agent or User**: Interactive mode lets you control either the agent or the user in conversations
-- **📊 Train/Test Splits**: To help support experiments around training Agents and evaluating them, all domains include standardized task splits for proper train/test evaluation.
-
-> **⚠️ IMPORTANT FOR BACKWARD COMPATIBILITY**: If you are just evaluating an agent (not training), you **MUST** use the `base` task split to evaluate on the complete task set that matches the original τ²-bench structure. This ensures your results are comparable to previous evaluations and maintains consistency with the established benchmark. (If you don't specify a task split, it will default to `base`.)
-- **🔧 Gymnasium Compatible**: Standard gym interface works with existing RL tools and libraries
-
-[**→ See Gym Documentation**](src/tau2/gym/README.md) | [**→ Try CLI Play Mode**](#interactive-play-mode)
-
 ## Overview
 
-$\tau^2$-bench implements a simulation framework for evaluating customer service agents across various domains.
+$\tau^2$-bench-Verified implements a simulation framework for evaluating customer service agents across various domains.
 
 **$\tau^2$-bench is the new iteration of the original $\tau$-bench**, featuring code fixes and an additional telecom domain.
 
@@ -75,8 +60,8 @@ All the information that an agent developer needs to build an agent for a domain
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/sierra-research/tau2-bench
-cd tau2-bench
+git clone https://github.com/amazon-agi/tau2-bench-verified
+cd tau2-bench-verified
 ```
 
 2. Create a new environment (optional)
@@ -99,7 +84,7 @@ This will enable you to run the `tau2` command.
 **Note:** If you use `pip install .` (without `-e`), you'll need to set the `TAU2_DATA_DIR` environment variable to point to your data directory:
 
 ```bash
-export TAU2_DATA_DIR=/path/to/your/tau2-bench/data
+export TAU2_DATA_DIR=/path/to/your/tau2-bench-verified/data
 ```
 
 **Check your data directory setup:**
@@ -140,7 +125,7 @@ tau2 run \
 
 Results will be saved in `data/tau2/simulations/`.
 
-> **💡 Tip**: For full agent evaluation that matches the original τ²-bench methodology, remove `--num-tasks` and use `--task-split base` to evaluate on the complete task set.
+> **💡 Tip**: For full agent evaluation that matches the original τ²-bench-Verified methodology, remove `--num-tasks` and use `--task-split base` to evaluate on the complete task set.
 
 ## Command Line Interface
 
@@ -162,7 +147,7 @@ tau2 run \
 ```bash
 tau2 play
 ```
-Experience τ²-bench from either perspective! The play mode allows you to:
+Experience τ²-bench-Verified from either perspective! The play mode allows you to:
 - **Play as Agent**: Manually control the agent's responses and tool calls
 - **Play as User**: Control the user while an LLM agent handles requests (available in domains with user tools like telecom)
 - **Understand tasks** by walking through scenarios step-by-step
@@ -386,6 +371,24 @@ sequenceDiagram
     Note over O: Return simulation run
 ```
 
-## Citation
+
+
+## Relationship to Original τ²-bench
+
+**τ²-Bench-Verified differs from the original [τ²-bench](https://github.com/sierra-research/tau2-bench) only in the dataset.** The evaluation framework, orchestrator, domains, and all other code remain identical to the original τ²-bench implementation. We have only corrected task definitions, expected actions, and evaluation criteria to properly align with stated policies and database contents.
+
+If you use τ²-Bench-Verified, please cite the original τ²-bench paper and τ²-bench-Verified paper:
+
+```bibtex
+@misc{barres2025tau2,
+      title={$\tau^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment}, 
+      author={Victor Barres and Honghua Dong and Soham Ray and Xujie Si and Karthik Narasimhan},
+      year={2025},
+      eprint={2506.07982},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2506.07982}, 
+}
+```
 
 TBD

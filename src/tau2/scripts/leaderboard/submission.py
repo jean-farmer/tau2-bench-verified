@@ -1,4 +1,4 @@
-"""Pydantic models for tau2-bench leaderboard submissions."""
+"""Pydantic models for tau2-bench-verified leaderboard submissions."""
 
 from datetime import date
 from typing import Optional
@@ -67,7 +67,7 @@ class Methodology(BaseModelNoExtra):
         None, description="Date when evaluation was conducted"
     )
     tau2_bench_version: Optional[str] = Field(
-        None, description="Version of tau2-bench used for evaluation"
+        None, description="Version of tau2-bench-verified used for evaluation"
     )
     user_simulator: Optional[str] = Field(
         None,
