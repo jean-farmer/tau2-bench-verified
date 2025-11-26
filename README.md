@@ -25,7 +25,7 @@
 | 9 | GPT-5.1 *(reasoning: med)* | 54.00% | 59.80% | 39.80% | 51.20% |
 | 10 | Gemini Flash 2.5 | 44.00% | 57.72% | 22.98% | 41.57% |
 
-<sub>All models evaluated with `gpt-4.1` as user simulator.</sub>
+<sub>All models evaluated with `gpt-5.1` as user simulator.</sub>
 
 ### Why This Version?
 
