@@ -468,7 +468,11 @@ sequenceDiagram
 
 **τ²-Bench-Verified differs from the original [τ²-bench](https://github.com/sierra-research/tau2-bench) only in the dataset.** The evaluation framework, orchestrator, domains, and all other code remain identical to the original τ²-bench implementation. We have only corrected task definitions, expected actions, and evaluation criteria to properly align with stated policies and database contents.
 
-If you use τ²-Bench-Verified, please cite the original τ²-bench paper and τ²-bench-Verified paper:
+If you use τ²-Bench-Verified, please cite the original τ²-bench paper and the τ²-bench-Verified paper:
+
+**τ²-Bench-Verified Paper:** 📄 [PDF](paper/SABER_tau_bench_verified.pdf) — *Citation: TBD*
+
+**Original τ²-Bench Paper:**
 
 ```bibtex
 @misc{barres2025tau2,
@@ -481,5 +485,3 @@ If you use τ²-Bench-Verified, please cite the original τ²-bench paper and τ
       url={https://arxiv.org/abs/2506.07982}, 
 }
 ```
-
-TBD
