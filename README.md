@@ -477,12 +477,14 @@ If you use τ²-Bench-Verified, please cite the original τ²-bench paper and th
 **τ²-Bench-Verified Paper:** 📄 [PDF](paper/SABER_tau_bench_verified.pdf)
 
 ```bibtex
-@Article{Lafuente2025,
-  author  = {Alex Cuadron Lafuente and Pengfei Yu and Yang Liu and Arpit Gupta},
-  title   = {SABER: Small actions, big errors — Safe-guarding mutating steps in LLM agents},
-  journal = {arXiv},
-  year    = {2025},
-  url     = {https://www.amazon.science/publications/saber-small-actions-big-errors-safe-guarding-mutating-steps-in-llm-agents},
+@misc{cuadron2025sabersmallactionsbig,
+      title={SABER: Small Actions, Big Errors - Safeguarding Mutating Steps in LLM Agents}, 
+      author={Alejandro Cuadron and Pengfei Yu and Yang Liu and Arpit Gupta},
+      year={2025},
+      eprint={2512.07850},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2512.07850}, 
 }
 ```
 
