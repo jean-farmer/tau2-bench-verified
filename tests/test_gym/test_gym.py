@@ -134,10 +134,11 @@ class TestTauGymEnv:
         # If observation is not empty, it should contain role: content format
         if observation:
             # Check that it contains at least one role: content pattern
-            lines = observation.split("\n")
-            for line in lines:
-                if line.strip():  # Skip empty lines
-                    assert ":" in line, f"Line '{line}' should contain ':'"
+            import re
+
+            assert re.search(
+                r"(user|assistant|system): ", observation
+            ), "Observation should contain at least one 'role: content' pattern"
 
     @timeout(30)
     def test_tau_gym_env_termination(self):

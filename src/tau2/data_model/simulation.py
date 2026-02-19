@@ -167,6 +167,20 @@ class RunConfig(BaseModel):
             default=False,
         ),
     ]
+    agent_framework: Annotated[
+        str,
+        Field(
+            description="The agentic framework to use ('default' or 'strands')",
+            default="default",
+        ),
+    ]
+    enable_trace: Annotated[
+        bool,
+        Field(
+            description="Enable JSONL trace logging for Strands agent events",
+            default=False,
+        ),
+    ]
 
     def validate(self) -> None:
         """

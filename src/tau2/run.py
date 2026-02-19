@@ -167,6 +167,8 @@ def run_domain(config: RunConfig) -> Results:
         seed=config.seed,
         log_level=config.log_level,
         enforce_communication_protocol=config.enforce_communication_protocol,
+        agent_framework=config.agent_framework,
+        enable_trace=config.enable_trace,
     )
     metrics = compute_metrics(simulation_results)
     ConsoleDisplay.display_agent_metrics(metrics)
@@ -193,6 +195,8 @@ def run_tasks(
     seed: Optional[int] = 300,
     log_level: Optional[str] = "INFO",
     enforce_communication_protocol: bool = False,
+    agent_framework: str = "default",
+    enable_trace: bool = False,
 ) -> Results:
     """
     Runs tasks for a given domain.
@@ -368,6 +372,10 @@ def run_tasks(
                 evaluation_type=evaluation_type,
                 seed=seed,
                 enforce_communication_protocol=enforce_communication_protocol,
+                agent_framework=agent_framework,
+                enable_trace=enable_trace,
+                save_to=save_to,
+                trial=trial,
             )
             simulation.trial = trial
             if console_display:
@@ -415,6 +423,10 @@ def run_task(
     evaluation_type: EvaluationType = EvaluationType.ALL,
     seed: Optional[int] = None,
     enforce_communication_protocol: bool = False,
+    agent_framework: str = "default",
+    enable_trace: bool = False,
+    save_to: Optional[Path] = None,
+    trial: Optional[int] = None,
 ) -> SimulationRun:
     """
     Runs tasks for a given domain.
@@ -437,6 +449,32 @@ def run_task(
      Returns:
          The simulation run.
     """
+
+    if agent_framework == "strands":
+        try:
+            from tau2.strands_integration.run import run_task_strands
+        except ImportError:
+            raise ImportError(
+                "Strands Agent SDK is not installed. "
+                "Install it with: pip install -e '.[strands]'"
+            )
+        return run_task_strands(
+            domain=domain,
+            task=task,
+            llm_agent=llm_agent,
+            llm_args_agent=llm_args_agent,
+            llm_user=llm_user,
+            llm_args_user=llm_args_user,
+            max_steps=max_steps,
+            max_errors=max_errors,
+            evaluation_type=evaluation_type,
+            seed=seed,
+            enforce_communication_protocol=enforce_communication_protocol,
+            user=user,
+            enable_trace=enable_trace,
+            save_to=save_to,
+            trial=trial,
+        )
 
     if max_steps <= 0:
         raise ValueError("Max steps must be greater than 0")

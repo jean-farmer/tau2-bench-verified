@@ -141,6 +141,19 @@ def add_run_args(parser):
         default=False,
         help="Enforce communication protocol rules (e.g., no mixed messages with text and tool calls). Default is False.",
     )
+    parser.add_argument(
+        "--agent-framework",
+        type=str,
+        default="default",
+        choices=["default", "strands"],
+        help="Agentic framework to use. 'default' uses built-in orchestrator, 'strands' uses Strands Agent SDK.",
+    )
+    parser.add_argument(
+        "--enable-trace",
+        action="store_true",
+        default=False,
+        help="Enable JSONL trace logging for Strands agent callback events. Files are saved alongside simulation results.",
+    )
 
 
 def main():
@@ -172,6 +185,8 @@ def main():
                 seed=args.seed,
                 log_level=args.log_level,
                 enforce_communication_protocol=args.enforce_communication_protocol,
+                agent_framework=args.agent_framework,
+                enable_trace=args.enable_trace,
             )
         )
     )

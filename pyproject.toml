@@ -41,6 +41,10 @@ dependencies = [
     "langfuse>=2.60.7",
     "gymnasium>=1.2.2",
 ]
+
+[project.optional-dependencies]
+strands = ["strands-agents>=0.1.0", "strands-agents-tools>=0.1.0"]
+
 [project.scripts]
 tau2 = "tau2.cli:main"
 
